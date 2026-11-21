@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* Tema: colores de marca de la agencia */
+@theme {
+    --color-marca-50: #f0fdfa;
+    --color-marca-100: #ccfbf1;
+    --color-marca-300: #5eead4;
+    --color-marca-600: #0d9488;
+    --color-marca-700: #0f766e;
+    --color-marca-800: #115e59;
+    --color-marca-900: #134e4a;
+
+    /* Animación de la barra de carga de páginas */
+    --animate-progreso: progreso 1s ease-in-out infinite;
+
+    @keyframes progreso {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(300%); }
+    }
+}
+
+/* Clases reutilizables con @apply para evitar repetir utilidades en el JSX */
+@layer components {
+    .contenedor {
+        @apply mx-auto w-full max-w-6xl px-4 py-6;
+    }
+
+    .titulo-pagina {
+        @apply mb-6 text-2xl font-bold;
+    }
+
+    .tarjeta {
+        @apply rounded-lg border border-gray-200 bg-white shadow-sm;
+    }
+
+    .grilla {
+        @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3;
+    }
+
+    /* Botones */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 font-medium transition-colors
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-marca-300
+            disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-primario {
+        @apply bg-marca-600 text-white hover:bg-marca-700;
+    }
+
+    .btn-secundario {
+        @apply border border-marca-600 text-marca-700 hover:bg-marca-600 hover:text-white;
+    }
+
+    /* Mensajes */
+    .alerta-error {
+        @apply rounded-md border border-red-300 bg-red-50 px-4 py-3 text-red-800;
+    }
+
+    .alerta-advertencia {
+        @apply rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-amber-900;
+    }
+
+    .alerta-info {
+        @apply rounded-md border border-marca-300 bg-marca-50 px-4 py-3 text-marca-800;
+    }
+
+    .enlace {
+        @apply font-medium text-marca-700 hover:underline disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    /* Indicador de carga giratorio (el tamaño se define con size-*) */
+    .spinner {
+        @apply inline-block animate-spin rounded-full border-2 border-marca-300 border-t-marca-700;
+    }
+}
