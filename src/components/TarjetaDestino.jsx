@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { RUTAS, precargar } from '../api/destinosApi'
+import ListaEtiquetas from './ListaEtiquetas'
 
 // Tarjeta de un destino: nombre, país, descripción y actividades populares
 function TarjetaDestino({ destino }) {
@@ -15,13 +16,7 @@ function TarjetaDestino({ destino }) {
             <p className="mb-4 text-sm text-gray-700">{descripcion}</p>
 
             <h4 className="mb-2 text-sm font-semibold">Actividades populares</h4>
-            <ul className="mb-4 flex flex-wrap gap-2">
-                {actividades.map(actividad => (
-                    <li key={actividad} className="rounded-full bg-marca-50 px-3 py-1 text-xs text-marca-800">
-                        {actividad}
-                    </li>
-                ))}
-            </ul>
+            <ListaEtiquetas elementos={actividades} className="mb-4" />
 
             <Link
                 to={`/destinos/${id}`}

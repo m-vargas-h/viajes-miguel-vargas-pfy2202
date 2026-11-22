@@ -1,5 +1,7 @@
-import { http, HttpResponse, delay } from 'msw'
+import { http, graphql, HttpResponse, delay } from 'msw'
 import { destinos } from './datos/destinos'
+import { vuelos } from './datos/vuelos'
+import { hoteles } from './datos/hoteles'
 import { obtenerEscenario } from './escenario'
 
 // Retraso simulado del servidor (ms) para poder ver los indicadores de carga
@@ -40,7 +42,33 @@ const handlersRest = [
     })),
 ]
 
-// API GraphQL: vuelos y hoteles (avance 2)
-const handlersGraphql = []
+// Error GraphQL: se responde con estado 200 y el arreglo "errors", como lo hace un servidor GraphQL real
+const destinoNoEncontrado = (destinoId) => HttpResponse.json({
+    errors: [{ message: `El destino "${destinoId}" no existe`, extensions: { code: 'NOT_FOUND' } }],
+})
+
+// Agrega __typename a cada elemento para que Apollo pueda normalizarlo en su caché
+const conTipo = (tipo, lista) => lista.map(elemento => ({ __typename: tipo, ...elemento }))
+
+// API GraphQL: vuelos y hoteles de un destino
+const handlersGraphql = [
+    // query ObtenerVuelos($destinoId: ID!) { vuelos(destinoId: $destinoId) { ... } }
+    graphql.query('ObtenerVuelos', conEscenario(({ variables }) => {
+        const { destinoId } = variables
+        if (!destinos.some(d => d.id === destinoId)) return destinoNoEncontrado(destinoId)
+        return HttpResponse.json({
+            data: { vuelos: conTipo('Vuelo', vuelos.filter(vuelo => vuelo.destinoId === destinoId)) },
+        })
+    })),
+
+    // query ObtenerHoteles($destinoId: ID!) { hoteles(destinoId: $destinoId) { ... } }
+    graphql.query('ObtenerHoteles', conEscenario(({ variables }) => {
+        const { destinoId } = variables
+        if (!destinos.some(d => d.id === destinoId)) return destinoNoEncontrado(destinoId)
+        return HttpResponse.json({
+            data: { hoteles: conTipo('Hotel', hoteles.filter(hotel => hotel.destinoId === destinoId)) },
+        })
+    })),
+]
 
 export const handlers = [...handlersRest, ...handlersGraphql]

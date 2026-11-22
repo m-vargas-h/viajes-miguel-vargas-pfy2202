@@ -1,0 +1,30 @@
+// Hoteles disponibles por destino (API GraphQL). Precios en CLP por noche.
+export const hoteles = [
+    { id: 'h-cus-1', destinoId: 'cusco', nombre: 'Hotel Inti Raymi', estrellas: 4, ubicacion: 'Centro histórico', precioNoche: 89000, disponibleDesde: '2026-12-01', disponibleHasta: '2027-03-31', habitacionesDisponibles: 6, servicios: ['Desayuno incluido', 'Wi-Fi', 'Traslado al aeropuerto'] },
+    { id: 'h-cus-2', destinoId: 'cusco', nombre: 'Casona San Blas', estrellas: 3, ubicacion: 'Barrio San Blas', precioNoche: 54500, disponibleDesde: '2026-12-10', disponibleHasta: '2027-02-28', habitacionesDisponibles: 2, servicios: ['Desayuno incluido', 'Wi-Fi'] },
+    { id: 'h-cus-3', destinoId: 'cusco', nombre: 'Valle Sagrado Lodge', estrellas: 5, ubicacion: 'Urubamba', precioNoche: 215000, disponibleDesde: '2027-01-05', disponibleHasta: '2027-04-30', habitacionesDisponibles: 0, servicios: ['Spa', 'Piscina temperada', 'Restaurante'] },
+
+    { id: 'h-ctg-1', destinoId: 'cartagena', nombre: 'Hotel Murallas del Caribe', estrellas: 4, ubicacion: 'Ciudad Amurallada', precioNoche: 132000, disponibleDesde: '2026-12-15', disponibleHasta: '2027-03-15', habitacionesDisponibles: 8, servicios: ['Piscina', 'Wi-Fi', 'Bar en la terraza'] },
+    { id: 'h-ctg-2', destinoId: 'cartagena', nombre: 'Bocagrande Beach Resort', estrellas: 5, ubicacion: 'Bocagrande', precioNoche: 248500, disponibleDesde: '2027-01-01', disponibleHasta: '2027-04-30', habitacionesDisponibles: 4, servicios: ['Todo incluido', 'Playa privada', 'Spa'] },
+    { id: 'h-ctg-3', destinoId: 'cartagena', nombre: 'Hostal Getsemaní', estrellas: 3, ubicacion: 'Getsemaní', precioNoche: 48900, disponibleDesde: '2026-12-01', disponibleHasta: '2027-02-28', habitacionesDisponibles: 11, servicios: ['Wi-Fi', 'Cocina compartida'] },
+
+    { id: 'h-tdp-1', destinoId: 'torres-del-paine', nombre: 'Refugio Las Torres', estrellas: 3, ubicacion: 'Sector Base Torres', precioNoche: 98000, disponibleDesde: '2026-11-15', disponibleHasta: '2027-03-31', habitacionesDisponibles: 3, servicios: ['Pensión completa', 'Guías de trekking'] },
+    { id: 'h-tdp-2', destinoId: 'torres-del-paine', nombre: 'Hotel Lago Pehoé', estrellas: 4, ubicacion: 'Lago Pehoé', precioNoche: 189000, disponibleDesde: '2026-12-01', disponibleHasta: '2027-03-15', habitacionesDisponibles: 0, servicios: ['Desayuno incluido', 'Vista al macizo', 'Excursiones'] },
+    { id: 'h-tdp-3', destinoId: 'torres-del-paine', nombre: 'Eco Domos Patagonia', estrellas: 4, ubicacion: 'Sector Serrano', precioNoche: 159500, disponibleDesde: '2026-12-10', disponibleHasta: '2027-04-10', habitacionesDisponibles: 5, servicios: ['Desayuno incluido', 'Tinaja caliente', 'Energía solar'] },
+
+    { id: 'h-rom-1', destinoId: 'roma', nombre: 'Albergo del Colosseo', estrellas: 4, ubicacion: 'Monti', precioNoche: 168000, disponibleDesde: '2027-01-01', disponibleHasta: '2027-05-31', habitacionesDisponibles: 7, servicios: ['Desayuno incluido', 'Wi-Fi', 'Terraza panorámica'] },
+    { id: 'h-rom-2', destinoId: 'roma', nombre: 'Residenza Trastevere', estrellas: 3, ubicacion: 'Trastevere', precioNoche: 97500, disponibleDesde: '2027-01-15', disponibleHasta: '2027-04-30', habitacionesDisponibles: 1, servicios: ['Wi-Fi', 'Recepción 24 h'] },
+    { id: 'h-rom-3', destinoId: 'roma', nombre: 'Palazzo Navona', estrellas: 5, ubicacion: 'Piazza Navona', precioNoche: 389000, disponibleDesde: '2027-02-01', disponibleHasta: '2027-06-30', habitacionesDisponibles: 3, servicios: ['Spa', 'Restaurante gourmet', 'Conserjería'] },
+
+    { id: 'h-bcn-1', destinoId: 'barcelona', nombre: 'Hotel Rambla Central', estrellas: 3, ubicacion: 'Barrio Gótico', precioNoche: 112000, disponibleDesde: '2026-12-15', disponibleHasta: '2027-04-15', habitacionesDisponibles: 9, servicios: ['Wi-Fi', 'Desayuno buffet'] },
+    { id: 'h-bcn-2', destinoId: 'barcelona', nombre: 'Barceloneta Mar Suites', estrellas: 4, ubicacion: 'La Barceloneta', precioNoche: 176500, disponibleDesde: '2027-01-10', disponibleHasta: '2027-05-31', habitacionesDisponibles: 0, servicios: ['Vista al mar', 'Piscina en la azotea', 'Wi-Fi'] },
+    { id: 'h-bcn-3', destinoId: 'barcelona', nombre: 'Gràcia Boutique', estrellas: 4, ubicacion: 'Gràcia', precioNoche: 149000, disponibleDesde: '2027-02-01', disponibleHasta: '2027-06-30', habitacionesDisponibles: 4, servicios: ['Desayuno incluido', 'Bicicletas gratis'] },
+
+    { id: 'h-kyo-1', destinoId: 'kioto', nombre: 'Ryokan Higashiyama', estrellas: 4, ubicacion: 'Higashiyama', precioNoche: 198000, disponibleDesde: '2027-03-20', disponibleHasta: '2027-05-31', habitacionesDisponibles: 2, servicios: ['Onsen', 'Cena kaiseki', 'Yukata'] },
+    { id: 'h-kyo-2', destinoId: 'kioto', nombre: 'Hotel Gion Sakura', estrellas: 3, ubicacion: 'Gion', precioNoche: 104500, disponibleDesde: '2027-03-01', disponibleHasta: '2027-06-30', habitacionesDisponibles: 10, servicios: ['Wi-Fi', 'Desayuno japonés'] },
+    { id: 'h-kyo-3', destinoId: 'kioto', nombre: 'Arashiyama Garden Resort', estrellas: 5, ubicacion: 'Arashiyama', precioNoche: 342000, disponibleDesde: '2027-04-01', disponibleHasta: '2027-07-31', habitacionesDisponibles: 0, servicios: ['Jardín zen', 'Spa', 'Ceremonia del té'] },
+
+    { id: 'h-cpt-1', destinoId: 'ciudad-del-cabo', nombre: 'Table Mountain View Hotel', estrellas: 4, ubicacion: 'City Bowl', precioNoche: 121000, disponibleDesde: '2027-01-01', disponibleHasta: '2027-04-30', habitacionesDisponibles: 6, servicios: ['Piscina', 'Desayuno incluido', 'Wi-Fi'] },
+    { id: 'h-cpt-2', destinoId: 'ciudad-del-cabo', nombre: 'Waterfront Harbour Lodge', estrellas: 5, ubicacion: 'V&A Waterfront', precioNoche: 265000, disponibleDesde: '2027-02-01', disponibleHasta: '2027-05-31', habitacionesDisponibles: 3, servicios: ['Spa', 'Vista al puerto', 'Restaurante'] },
+    { id: 'h-cpt-3', destinoId: 'ciudad-del-cabo', nombre: 'Stellenbosch Wine Inn', estrellas: 4, ubicacion: 'Stellenbosch', precioNoche: 143500, disponibleDesde: '2027-01-15', disponibleHasta: '2027-04-15', habitacionesDisponibles: 1, servicios: ['Cata de vinos', 'Desayuno incluido'] },
+]
