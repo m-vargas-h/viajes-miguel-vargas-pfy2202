@@ -1,15 +1,16 @@
 import { formatearFecha, formatearPrecio } from '../utils/formato'
+import BotonElegir from './BotonElegir'
 import EtiquetaDisponibilidad from './EtiquetaDisponibilidad'
 import ListaEtiquetas from './ListaEtiquetas'
 
-function TarjetaHotel({ hotel }) {
+function TarjetaHotel({ hotel, seleccionado = false, onAlternar }) {
     const {
         nombre, estrellas, ubicacion, precioNoche, disponibleDesde,
         disponibleHasta, habitacionesDisponibles, servicios,
     } = hotel
 
     return (
-        <article className={`tarjeta flex flex-col p-5 ${habitacionesDisponibles === 0 ? 'opacity-70' : ''}`}>
+        <article className={`tarjeta flex flex-col p-5 ${seleccionado ? 'ring-2 ring-marca-600' : ''} ${habitacionesDisponibles === 0 && !seleccionado ? 'opacity-70' : ''}`}>
             <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
                 <div>
                     <h4 className="text-lg font-semibold">{nombre}</h4>
@@ -31,6 +32,14 @@ function TarjetaHotel({ hotel }) {
             <div className="mt-auto border-t border-gray-200 pt-3">
                 <p className="text-xl font-bold text-marca-800">{formatearPrecio(precioNoche)}</p>
                 <p className="text-xs text-gray-500">por noche</p>
+                {onAlternar && (
+                    <BotonElegir
+                        seleccionado={seleccionado}
+                        agotado={habitacionesDisponibles === 0}
+                        onClick={onAlternar}
+                        texto="Elegir este hotel"
+                    />
+                )}
             </div>
         </article>
     )

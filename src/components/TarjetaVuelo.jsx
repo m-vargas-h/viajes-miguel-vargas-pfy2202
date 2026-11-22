@@ -1,14 +1,15 @@
 import { formatearFecha, formatearPrecio, pluralizar } from '../utils/formato'
+import BotonElegir from './BotonElegir'
 import EtiquetaDisponibilidad from './EtiquetaDisponibilidad'
 
-function TarjetaVuelo({ vuelo }) {
+function TarjetaVuelo({ vuelo, seleccionado = false, onAlternar }) {
     const {
         aerolinea, numeroVuelo, origen, llegada, fechaSalida, fechaRegreso,
         escalas, duracion, precio, asientosDisponibles,
     } = vuelo
 
     return (
-        <article className={`tarjeta flex flex-col p-5 ${asientosDisponibles === 0 ? 'opacity-70' : ''}`}>
+        <article className={`tarjeta flex flex-col p-5 ${seleccionado ? 'ring-2 ring-marca-600' : ''} ${asientosDisponibles === 0 && !seleccionado ? 'opacity-70' : ''}`}>
             <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                 <div>
                     <h4 className="text-lg font-semibold">{aerolinea}</h4>
@@ -41,6 +42,14 @@ function TarjetaVuelo({ vuelo }) {
             <div className="mt-auto border-t border-gray-200 pt-3">
                 <p className="text-xl font-bold text-marca-800">{formatearPrecio(precio)}</p>
                 <p className="text-xs text-gray-500">por persona, ida y vuelta</p>
+                {onAlternar && (
+                    <BotonElegir
+                        seleccionado={seleccionado}
+                        agotado={asientosDisponibles === 0}
+                        onClick={onAlternar}
+                        texto="Elegir este vuelo"
+                    />
+                )}
             </div>
         </article>
     )

@@ -6,3 +6,7 @@ export const formatearFecha = (fecha) =>
 
 // Devuelve "1 vuelo" / "3 vuelos"
 export const pluralizar = (cantidad, singular, plural) => `${cantidad} ${cantidad === 1 ? singular : plural}`
+
+// Días entre dos fechas AAAA-MM-DD (por ejemplo, noches entre la ida y el regreso)
+export const diasEntre = (desde, hasta) =>
+    Math.round((Date.parse(`${hasta}T00:00:00Z`) - Date.parse(`${desde}T00:00:00Z`)) / 86400000)

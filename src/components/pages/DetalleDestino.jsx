@@ -10,6 +10,7 @@ import HotelesDestino from '../HotelesDestino'
 import IndicadorActualizando from '../IndicadorActualizando'
 import ListaEtiquetas from '../ListaEtiquetas'
 import MensajeError from '../MensajeError'
+import ResumenSeleccion from '../ResumenSeleccion'
 import VuelosDestino from '../VuelosDestino'
 
 const PESTANAS = ['Vuelos', 'Hoteles']
@@ -71,9 +72,11 @@ function DetalleDestino() {
                     />
                 </div>
 
+                <ResumenSeleccion destino={destino} />
+
                 {pestana === 'Vuelos'
-                    ? <VuelosDestino destinoId={destinoId} />
-                    : <HotelesDestino destinoId={destinoId} />}
+                    ? <VuelosDestino destino={destino} />
+                    : <HotelesDestino destino={destino} />}
             </section>
 
             <div className="mt-8">{volver}</div>
