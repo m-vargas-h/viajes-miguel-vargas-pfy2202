@@ -1,0 +1,1 @@
+import{I as e,s as t}from"./index-MHJrt-k0.js";var n=t(),r={primario:`btn-primario`,secundario:`btn-secundario`};function i({variante:t=`primario`,to:i,type:a=`button`,className:o=``,children:s,...c}){let l=[`btn`,r[t],o].filter(Boolean).join(` `);return i?(0,n.jsx)(e,{to:i,className:l,...c,children:s}):(0,n.jsx)(`button`,{type:a,className:l,...c,children:s})}export{i as t};
